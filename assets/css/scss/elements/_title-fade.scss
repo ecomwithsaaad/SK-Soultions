@@ -1,0 +1,41 @@
+//
+// Title Fade //
+//
+.title-fade-gradient-1, 
+.title-fade-gradient-2, 
+.title-fade-gradient-3, 
+.title-fade-gradient-4, 
+.title-fade-gradient-5, 
+.title-fade-dark {
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	&:before {
+		z-index: -1;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.15;
+		width: 100%;
+		height: 100%;
+	}
+}
+.title-fade-gradient-1 {
+	&:before { background-image: $bg-fade-gradient-1; }
+}
+.title-fade-gradient-2 {
+	&:before { background-image: $bg-fade-gradient-2; }
+}
+.title-fade-gradient-3 {
+	&:before { background-image: $bg-fade-gradient-3; }
+}
+.title-fade-gradient-4 {
+	&:before { background-image: $bg-fade-gradient-4; }
+}
+.title-fade-gradient-5 {
+	&:before { background-image: $bg-fade-gradient-5; }
+}
+.title-fade-dark {
+	&:before { background-image: $bg-fade-dark; }
+}

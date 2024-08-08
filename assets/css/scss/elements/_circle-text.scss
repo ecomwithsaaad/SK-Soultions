@@ -1,0 +1,32 @@
+//
+// Circular SVG Text //
+//
+.circle-text {
+  position: relative;
+  max-width: 300px;
+  max-height: 300px;
+  text-transform: uppercase;
+  font-weight: bold;
+  .circle-svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .circle-text-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+}
+.rotating {
+  animation: rotating 20s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

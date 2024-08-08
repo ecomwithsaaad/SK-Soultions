@@ -1,0 +1,145 @@
+//
+// List styles //
+//
+ul {
+	margin: 0;
+	li {
+		a {
+			@include transition(linear 0.1s);
+		}
+	}
+	&[class*=' list-'], &[class^='list-'] {
+		padding: 0;
+	}
+	&.list-unstyled {
+		li {
+			list-style-type: none;
+			margin-bottom: 6px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	&.list-dash {
+		li {
+			list-style-type: none;
+			margin-bottom: 6px;
+			&:before {
+				content: '-';
+				padding-right: 7px;
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	&.list-border-dashed {
+		li {
+			list-style-type: none;
+			padding: 12px 0;
+			border-bottom: 1px dashed $dark-20;
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+	}
+	//
+	// Horizontal List //
+	//
+	&[class*=' list-inline'], &[class^='list-inline'] {
+		li {
+			display: inline-block;
+		}
+	}
+	&.list-inline-dash {
+		li {
+			padding-right: 5px;
+			&:before {
+				content: '-';
+				padding-right: 8px;
+			}
+			&:first-child {
+				&:before {
+					display: none;
+				}
+			}
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+	&.list-inline {
+		li {
+			padding-right: 4px;
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+	&.list-inline-lg {
+		li {
+			padding-right: 8px;
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+	&.list-inline-xl {
+		li {
+			padding-right: 13px;
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+	&.list-inline-2xl {
+		li {
+			padding-right: 17px;
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+	&.list-inline-dot {
+		li {
+			position: relative;
+			padding: 0 4px 0 14px;
+			&:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				@include transform(translateY(-50%));
+				background: $black-80;
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+			}
+			&:first-child {
+				padding-left: 0;
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	ul {
+		&.list-border-dashed {
+			li {
+				border-color: $white-30;
+			}
+		}
+		&.list-inline-dot {
+			li {
+				&:before {
+					background: $white-80;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,64 @@
+//
+// Background Image //
+//
+.bg-image {
+	position: relative;
+	background-position: center center;
+	background-attachment: scroll;
+	@include background-size(cover);
+	background-repeat: no-repeat;
+}
+
+//
+// Background Video //
+//
+.bg-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	video {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+//
+// Background Patterns //
+//
+.bg-pattern-diagonal {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: transparent;
+		opacity: 0.08;
+		background-size: 10px 10px;
+		background-image: repeating-linear-gradient(45deg, $dark 0, $dark 1px, transparent 0, transparent 50%);
+	}
+}
+.bg-pattern-polka {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: transparent;
+		opacity: 0.6;
+		background-image:  radial-gradient($dark 0.5px, transparent 0.5px), radial-gradient($dark 0.5px, transparent 0.5px);
+		background-size: 20px 20px;
+		background-position: 0 0,10px 10px;
+	}
+}

@@ -1,0 +1,279 @@
+//
+// Backgroud Lines 5 //
+//
+.bg-lines-5 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	.line-1, 
+	.line-2, 
+	.line-3, 
+	.line-4, 
+	.line-5 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		border-right: 1px solid $dark-10;
+		&:before {
+			content: '';
+			position: absolute;
+			top: -80px;
+			right: -1px;
+			background: linear-gradient(transparent, $dark-60);
+			width: 1px;
+			height: 80px;
+		}
+	}
+	.line-1 {
+		width: 10%;
+	}
+	.line-2 {
+		width: 30%;
+	}
+	.line-3 {
+		width: 50%;
+	}
+	.line-4 {
+		width: 70%;
+	}
+	.line-5 {
+		width: 90%;
+	}
+	&.bg-lines-animated {
+		.line-1 {
+			&:before {
+				@include animation(bgLine 8s linear infinite);
+			}
+		}
+		.line-2 {
+			&:before {
+				@include animation(bgLine 9s linear infinite);
+				@include animation-delay(5s);
+			}
+		}
+		.line-3 {
+			&:before {
+				@include animation(bgLine 7s linear infinite);
+				@include animation-delay(4s);
+			}
+		}
+		.line-4 {
+			&:before {
+				@include animation(bgLine 10s linear infinite);
+				@include animation-delay(8s);
+			}
+		}
+		.line-5 {
+			&:before {
+				@include animation(bgLine 8.5s linear infinite);
+				@include animation-delay(3s);
+			}
+		}
+	}
+	@include breakpoint-less(md) {
+		.line-1 {
+			width: 10%;
+		}
+		.line-2 {
+			width: 50%;
+		}
+		.line-3 {
+			width: 90%;
+		}
+		.line-4, 
+		.line-5 {
+			display: none;
+		}
+	}
+}
+@-webkit-keyframes bgLine {
+	0% {
+		top: -80px;
+	}
+	100% {
+		top: 100%;
+	}
+}
+@keyframes bgLine {
+	0% {
+		top: -80px;
+	}
+	100% {
+		top: 100%;
+	}
+}
+
+//
+// Background Lines 3 //
+//
+.bg-lines-3 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	.line-1, 
+	.line-2, 
+	.line-3 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		border-right: 1px solid $dark-10;
+		&:before {
+			content: '';
+			position: absolute;
+			top: -80px;
+			right: -1px;
+			background: linear-gradient(transparent, $dark-60);
+			width: 1px;
+			height: 80px;
+		}
+	}
+	.line-1 {
+		width: 10%;
+	}
+	.line-2 {
+		width: 50%;
+	}
+	.line-3 {
+		width: 90%;
+	}
+	&.bg-lines-animated {
+		.line-1 {
+			&:before {
+				@include animation(bgLine 8s linear infinite);
+			}
+		}
+		.line-2 {
+			&:before {
+				@include animation(bgLine 9s linear infinite);
+				@include animation-delay(5s);
+			}
+		}
+		.line-3 {
+			&:before {
+				@include animation(bgLine 7s linear infinite);
+				@include animation-delay(4s);
+			}
+		}
+	}
+}
+
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	.bg-lines-5, 
+	.bg-lines-3 {
+		* {
+			border-color: $white-15;
+			&:before {
+				background: linear-gradient(transparent, $white-70);
+			}
+		}
+	}
+}
+
+//
+// Cursor Captions //
+//
+.cursors {
+	z-index: 1000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	@include transform(translate(-50%,-50%));
+	pointer-events: none;
+	.mouse-caption, img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-left: 8px;
+	}
+	.mouse-caption {
+		backdrop-filter: blur(5px);
+		background: $white-50;
+		padding: 16px 20px;
+		* {
+			margin: 0;
+		}
+		h2 {
+			padding: 4px;
+		}
+		&.mouse-caption-dark {
+			background: $dark-70;
+			color: white;
+			* {
+				color: white;
+			}
+		}
+	}
+	img {
+		min-width: 300px;
+		width: 300px;
+		@include transition(linear 0.1s);
+	}
+}
+@include breakpoint-less(md) {
+	.cursors {
+		display: none;
+	}
+}
+
+
+//
+// Particles //
+//
+#particles-js {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
+//
+// Scroll to Top //
+//
+.scrolltotop {
+	z-index: 996;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	@include transform(translateY(10px));
+	visibility: hidden;
+	opacity: 0;
+	display: inline-block;
+	background: $white-10;
+	width: 46px;
+	height: 46px;
+	line-height: 46px;
+	border-radius: 50%;
+	color: white;
+	text-align: center;
+	mix-blend-mode: difference;
+	cursor: pointer;
+	backdrop-filter: blur(5px);
+	@include transition(ease-out 0.12s);
+	* {
+		color: white;
+	}
+	&.show {
+		@include transform(translateY(0));
+		visibility: visible;
+		opacity: 1;
+	}
+}
+@include breakpoint-less(md) {
+	.scrolltotop {
+		right: 16px;
+		bottom: 16px;
+	}
+}

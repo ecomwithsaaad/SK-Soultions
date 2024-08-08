@@ -1,0 +1,295 @@
+//
+// Link Hover - Line //
+//
+.link-hover-line {
+    z-index: 1;
+    position: relative;
+    color: black;
+    &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        background: black;
+        height: 1px;
+        @include animation(line-out 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) both);
+    }
+    &:hover {
+        color: black;
+        &:before {
+            width: 100%;
+            @include animation(line-in 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) both);
+        }
+    }
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+    .link-hover-line {
+    	color: white;
+        &:before {
+            background: white
+        }
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+//
+// Link Hover - Gradient //
+//
+[class*='link-hover-gradient'] {
+	z-index: 1;
+	position: relative;
+	color: black;
+	&:before {
+		content: '';
+		z-index: -1;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		opacity: 0.4;
+		height: 30%;
+		@include animation(line-out 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) both);
+	}
+	&:hover {
+		&:before {
+			width: 100%;
+			@include animation(line-in 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) both);
+		}
+	}
+}
+.link-hover-gradient-1 {
+	&:before { background: $gradient-1; }
+}
+.link-hover-gradient-2 {
+	&:before { background: $gradient-2; }
+}
+.link-hover-gradient-3 {
+	&:before { background: $gradient-3; }
+}
+.link-hover-gradient-4 {
+	&:before { background: $gradient-4; }
+}
+.link-hover-gradient-5 {
+	&:before { background: $gradient-5; }
+}
+.display-1, 
+.display-2, 
+.display-3 {
+	[class*='link-hover-gradient'] {
+		&:before {
+			height: 20%;
+		}
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	[class*='link-hover-gradient'] {
+		color: white;
+	}
+}
+@-webkit-keyframes line-out {
+	0% {
+		@include transform(scaleX(1)); @include transform-origin(100% 50%);
+	}
+	100% {
+		@include transform(scaleX(0)); @include transform-origin(100% 50%);
+	}
+}
+@keyframes line-out {
+	0% {
+		@include transform(scaleX(1)); @include transform-origin(100% 50%);
+	}
+	100% {
+		@include transform(scaleX(0)); @include transform-origin(100% 50%);
+	}
+}
+@-webkit-keyframes line-in {
+	0% {
+		@include transform(scaleX(0)); @include transform-origin(0 50%);
+	}
+	100% {
+		@include transform(scale(1)); @include transform-origin(0 50%);
+	}
+}
+@keyframes line-in {
+	0% {
+		@include transform(scaleX(0)); @include transform-origin(0 50%);
+	}
+	100% {
+		@include transform(scale(1)); @include transform-origin(0 50%);
+	}
+}
+
+//
+// Link Hover - Reveal Icon //
+//
+.link-hover-reveal {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	color: black;
+	@include transition(all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1));
+	i {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		@include transform(translateY(-50%));
+		visibility: hidden;
+		opacity: 0;
+		color: black;
+		@include transition(linear 0.1s);
+	}
+	&:hover {
+		padding-left: 24px;
+		i {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+h5, .h5 {
+	.link-hover-reveal {
+		&:hover { padding-left: 30px; }
+	}
+}
+h4, .h4 {
+	.link-hover-reveal {
+		&:hover { padding-left: 34px; }
+	}
+}
+h3, .h3 {
+	.link-hover-reveal {
+		&:hover { padding-left: 38px; }
+	}
+}
+h2, .h2 {
+	.link-hover-reveal {
+		&:hover { padding-left: 43px; }
+	}
+}
+h1, .h1 {
+	.link-hover-reveal {
+		&:hover { padding-left: 50px; }
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	.link-hover-reveal {
+		color: white;
+		i {
+			color: white;
+		}
+	}
+}
+
+//
+// Link Hover - Stroke //
+//
+.link-hover-fill {
+	color: black;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+    @include transition(linear 0.1s);
+    &:hover {
+        text-shadow: 0 0 black;
+    }
+}
+.link-hover-stroke {
+	color: black;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+    @include transition(linear 0.1s);
+    text-shadow: 0 0 black;
+    &:hover {
+        text-shadow: none;
+    }
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	.link-hover-fill, 
+	.link-hover-stroke {
+		color: white;
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: white;
+	}
+	.link-hover-fill {
+		&:hover {
+			text-shadow: 0 0 white;
+		}
+	}
+	.link-hover-stroke {
+		text-shadow: 0 0 white;
+		&:hover {
+			text-shadow: none;
+		}
+	}
+}
+
+//
+// Link Hover - Slide //
+//
+.link-hover-slide {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+	span {
+		display: block;
+		position: relative;
+		color: transparent;
+		&:before, &:after {
+			content: attr(data-text);
+			position: absolute;
+			left: 0;
+			color: black;
+			@include transition(ease-out 0.16s);
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			visibility: hidden;
+			opacity: 0;
+			top: 50%;
+		}
+	}
+	&:hover {
+		&:before {
+			opacity: 0.4;
+			@include transform(translateY(-50%) scale(2.7));
+		}
+		span {
+			&:before {
+				visibility: hidden;
+				opacity: 0;
+				top: -50%;
+			}
+			&:after {
+				visibility: visible;
+				opacity: 1;
+				top: 0;
+			}
+		}
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	.link-hover-slide {
+		span {
+			&:before, &:after {
+				color: white;
+			}
+		}
+	}
+}

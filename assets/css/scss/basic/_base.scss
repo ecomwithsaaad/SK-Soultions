@@ -1,0 +1,194 @@
+//
+// Base styles //
+//
+html, body {
+	width: 100%;
+	height: 100%;
+}
+body {
+	overflow-x: hidden;
+	position: relative;
+	background: white;
+	color: $primary;
+	@extend .theme-light;
+}
+main {
+	position: relative;
+	min-height: 100%;
+}
+
+.container, 
+.container-fluid {
+	position: relative;
+	padding: 0 30px;
+}
+
+//
+// Basic Coloring //
+//
+.theme-light {
+	color: $primary;
+	h1,h2,h3,h4,h5,h6,i, 
+	.h1, .h2, .h3, .h4, .h5, .h6 { color: $dark; }
+	a {
+		&:not([class^='button'], [class^='link-hover']) {
+			color: $dark;
+			&:hover, &:focus { color: $dark-80; }
+		}
+	}
+}
+.theme-dark {
+	color: $white-80;
+	h1,h2,h3,h4,h5,h6,i, 
+	.h1, .h2, .h3, .h4, .h5, .h6 { color: white; }
+	a {
+		&:not([class^='button'], [class^='link-hover']) {
+			color: white;
+			i {
+				color: white;
+			}
+			&:hover, &:focus { 
+				color: $white-80; 
+				i {
+					color: $white-80;
+				}
+			}
+		}
+	}
+}
+[class*='bg-white'] {
+	@extend .theme-light;
+	[class*='bg-black'], 
+	[class*='bg-dark'], 
+	[class*='bg-gradient'] {
+		@extend .theme-dark;
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	@extend .theme-dark;
+	[class*='bg-white'] {
+		@extend .theme-light;
+	}
+}
+
+:root {
+	--bs-dark-rgb: 28, 29, 36;
+	--bs-border-color: $dark-10;
+}
+
+
+//
+// Sections Spacings //
+//
+.section-fullscreen, 
+[class*='section-spacing'] {
+	position: relative;
+}
+.section-fullscreen {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.section-spacing-xl {
+	padding: 140px 0;
+}
+.section-spacing-lg {
+	padding: 120px 0;
+}
+.section-spacing {
+	padding: 100px 0;
+}
+.section-spacing-sm {
+	padding: 80px 0;
+}
+.section-spacing-xs {
+	padding: 65px 0;
+}
+@include breakpoint-less(md) {
+	.section-spacing-xl {
+		padding: 120px 0;
+	}
+	.section-spacing-lg {
+		padding: 100px 0;
+	}
+	.section-spacing {
+		padding: 80px 0;
+	}
+	.section-spacing-sm {
+		padding: 60px 0;
+	}
+	.section-spacing-xs {
+		padding: 50px 0;
+	}
+}
+
+//
+// Custom Row Column Spacing //
+//
+.custom-row {
+	margin: -30px;
+	.custom-col { padding: 30px; }
+}
+.custom-row-lg {
+	margin: -35px;
+	.custom-col { padding: 35px; }
+}
+.custom-row, 
+.custom-row-lg {
+	@include breakpoint-above(2xl) {
+		margin: -35px;
+		.custom-col { padding: 35px; }
+	}
+	@include breakpoint-less(lg) {
+		margin: -25px;
+		.custom-col { padding: 25px; }
+	}
+	@include breakpoint-less(md) {
+		margin: -20px;
+		.custom-col { padding: 20px; }
+	}
+	@include breakpoint-less(sm) {
+		margin: -15px;
+		.custom-col { padding: 15px; }
+	}
+}
+
+//
+// Horizontal Rule //
+//
+hr {
+	&.hr-diagonal {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 8px;
+		border: 0;
+		margin: 0;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: transparent;
+			opacity: 0.5;
+			background-size: 5px 5px;
+			background-image: repeating-linear-gradient(45deg, $dark 0, $dark 1px, transparent 0, transparent 50%);
+		}
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	hr {
+		&.hr-diagonal {
+			&:before {
+				opacity: 0.8;
+				background-image: repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%);
+			}
+		}
+	}
+}

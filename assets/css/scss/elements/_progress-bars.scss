@@ -1,0 +1,93 @@
+//
+// Progress bars //
+//
+.progress-box {
+	.animated-progress {
+		position: relative;
+		background: $dark-10;
+		height: 4px;
+		margin-top: 4px;
+		border-radius: 3px;
+		div {
+			position: absolute;
+			display: block;
+		    background: $dark;
+			width: 10%;
+			height: 100%;
+			border-radius: 4px;
+			color: $dark;
+			@include transition(width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1));
+			@include transition-delay(0.1s);
+			&:after {
+				content: attr(data-progress) '%';
+				position: absolute;
+				top: -30px;
+				right: 0;
+				opacity: 0;
+				font-family: $font-family-secondary;
+				font-size: 500;
+				@include transition(ease-out 0.16s);
+			}
+			&.progress-show {
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	.progress-box {
+		.animated-progress {
+			background: $white-10;
+			div {
+				background: white;
+				color: white;
+			}
+		}
+	}
+}
+.progress-box {
+	&.progress-gradient-1 {
+		.animated-progress {
+			div {
+				background: transparent;
+				background-image: $gradient-1;
+			}
+		}
+	}
+	&.progress-gradient-2 {
+		.animated-progress {
+			div {
+				background: transparent;
+				background-image: $gradient-2;
+			}
+		}
+	}
+	&.progress-gradient-3 {
+		.animated-progress {
+			div {
+				background: transparent;
+				background-image: $gradient-3;
+			}
+		}
+	}
+	&.progress-gradient-4 {
+		.animated-progress {
+			div {
+				background: transparent;
+				background-image: $gradient-4;
+			}
+		}
+	}
+	&.progress-gradient-5 {
+		.animated-progress {
+			div {
+				background: transparent;
+				background-image: $gradient-5;
+			}
+		}
+	}
+}

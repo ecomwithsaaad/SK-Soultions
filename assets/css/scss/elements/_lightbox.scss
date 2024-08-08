@@ -1,0 +1,85 @@
+//
+// Lightbox //
+//
+.lightbox-video {
+	position: relative;
+	@include transform(translate3d(0,0,0));
+	overflow: hidden;
+	img {
+		@include transform(scale(1));
+		width: 100%;
+		@include transition(transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1));
+	}
+	.lightbox-play-btn {
+		z-index: 1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include transform(translate(-50%,-50%));
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		line-height: 100px;
+		border-radius: 50%;
+		text-align: center;
+		color: white;
+		font-size: 1.6em;
+		i {
+			color: white;
+		}
+		&:before, 
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border-radius: 50%;
+			@include transition(transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1));
+		}
+		&:before {
+			z-index: -1;
+			background: $black-10;
+			border-radius: 50%;
+		}
+		&:after {
+			z-index: -1;
+			@include transform(scale(2.5));
+			background: $black-10;
+			border-radius: 50%;
+		}
+		&:hover {
+			color: white;
+			&:before {
+				@include transform(scale(1.2));
+			}
+			&:after {
+				@include transform(scale(2.6));
+			}
+		}
+	}
+	&:hover {
+		img {
+			@include transform(scale(1.04));
+		}
+	}
+}
+@include breakpoint-less(lg) {
+	.lightbox-video {
+		.lightbox-play-btn {
+			width: 80px;
+			height: 80px;
+			line-height: 80px;
+		}
+	}
+}
+@include breakpoint-less(md) {
+	.lightbox-video {
+		.lightbox-play-btn {
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+		}
+	}
+}

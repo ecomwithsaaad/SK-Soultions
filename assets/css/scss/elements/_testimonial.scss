@@ -1,0 +1,73 @@
+//
+// Quote box - Bubble //
+//
+.testimonial-quote-box {
+	.quote {
+		background: $gray;
+		padding: 24px;
+		border-radius: 1em;
+	}
+	.quote-author {
+		position: relative;
+		@include display-flex;
+		align-items: center;
+		padding-top: 26px;
+		&:before, 
+		&:after {
+			content: '';
+			position: absolute;
+			background: $gray;
+			border-radius: 50%;
+		}
+		&:before {
+			top: 14px;
+			left: 40px;
+			width: 8px;
+			height: 8px;
+		}
+		&:after {
+			top: -10px;
+			left: 44px;
+			width: 20px;
+			height: 20px;
+		}
+		img {
+			display: inline-block;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+		}
+	}
+}
+
+.bg-gray, 
+.bg-iceblue {
+	.testimonial-quote-box {
+		.quote {
+			background: white;
+		}
+		.quote-author {
+			&:before, 
+			&:after {
+				background: white;
+			}
+		}
+	}
+}
+
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	.testimonial-quote-box {
+		.quote {
+			background: $white-10;
+		}
+		.quote-author {
+			padding-top: 16px;
+			&:before, 
+			&:after {
+				display: none;
+			}
+		}
+	}
+}

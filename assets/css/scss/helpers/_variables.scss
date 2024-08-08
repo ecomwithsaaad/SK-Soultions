@@ -1,0 +1,87 @@
+//
+// Font styles //
+//
+$font-family-primary: 'Open Sans', sans-serif;
+$font-family-secondary: 'Outfit', sans-serif;
+$font-family-tertiary: 'Lora', serif;
+$font-family-poppins: 'Poppins', sans-serif;
+
+//
+// Font weights //
+//
+$font-weight-bold: 700;
+$font-weight-semi-bold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;
+
+//
+// Colors //
+//
+$dark: rgb(28, 29, 36);
+$dark-90: rgba(28, 29, 36, 0.9);
+$dark-85: rgba(28, 29, 36, 0.85);
+$dark-80: rgba(28, 29, 36, 0.8);
+$dark-70: rgba(28, 29, 36, 0.7);
+$dark-60: rgba(28, 29, 36, 0.6);
+$dark-50: rgba(28, 29, 36, 0.5);
+$dark-40: rgba(28, 29, 36, 0.4);
+$dark-30: rgba(28, 29, 36, 0.3);
+$dark-20: rgba(28, 29, 36, 0.2);
+$dark-10: rgba(28, 29, 36, 0.1);
+$dark-05: rgba(28, 29, 36, 0.05);
+$black-90: rgba(0, 0, 0, 0.9);
+$black-85: rgba(0, 0, 0, 0.85);
+$black-80: rgba(0, 0, 0, 0.8);
+$black-70: rgba(0, 0, 0, 0.7);
+$black-60: rgba(0, 0, 0, 0.6);
+$black-50: rgba(0, 0, 0, 0.5);
+$black-40: rgba(0, 0, 0, 0.4);
+$black-30: rgba(0, 0, 0, 0.3);
+$black-20: rgba(0, 0, 0, 0.2);
+$black-10: rgba(0, 0, 0, 0.1);
+$white-95: rgba(255, 255, 255, 0.9);
+$white-90: rgba(255, 255, 255, 0.9);
+$white-80: rgba(255, 255, 255, 0.8);
+$white-70: rgba(255, 255, 255, 0.7);
+$white-60: rgba(255, 255, 255, 0.6);
+$white-50: rgba(255, 255, 255, 0.5);
+$white-40: rgba(255, 255, 255, 0.4);
+$white-30: rgba(255, 255, 255, 0.3);
+$white-20: rgba(255, 255, 255, 0.2);
+$white-15: rgba(255, 255, 255, 0.15);
+$white-10: rgba(255, 255, 255, 0.1);
+$primary: rgb(120, 122, 124);
+$primary-lighter: rgb(170, 171, 172);
+$border-gray: rgb(220, 223, 226);
+$gray: rgb(241, 242, 250);
+$button-gray: rgb(236, 237, 245);
+$green: #32CD32;
+$yellow: #FFB657;
+$red: #E32227;
+$iceblue: #E8F3FF;
+
+//
+// Gradient Colors //
+//
+$gradient-1: linear-gradient(45deg, #ff5988, #500c7f);
+$gradient-2: linear-gradient(45deg, #2fbdff, #0f2f40);
+$gradient-3: linear-gradient(45deg, #ff2f78, #ff7582);
+$gradient-4: linear-gradient(45deg, #00DBDE, #FC00FF);
+$gradient-5: linear-gradient(45deg, #007990, #6CE5C0);
+
+$bg-fade-gradient-1: linear-gradient(90deg, #ff5988, transparent 90%);
+$bg-fade-gradient-2: linear-gradient(90deg, #2fbdff, transparent 90%);
+$bg-fade-gradient-3: linear-gradient(90deg, #ff2f78, transparent 90%);
+$bg-fade-gradient-4: linear-gradient(90deg, #00DBDE, transparent 90%);
+$bg-fade-gradient-5: linear-gradient(90deg, #007990, transparent 90%);
+$bg-fade-dark: linear-gradient(90deg, $dark-50, transparent 90%);
+
+//
+// Button Gradients //
+//
+$button-gradient-1: linear-gradient(to right, #ff5988, #500c7f, #ff5988);
+$button-gradient-2: linear-gradient(to right, #2fbdff, #0f2f40, #2fbdff);
+$button-gradient-3: linear-gradient(to right, #ff2f78, #ff7582, #ff2f78);
+$button-gradient-4: linear-gradient(to right, #00DBDE, #FC00FF, #00DBDE);
+$button-gradient-5: linear-gradient(to right, #007990, #6CE5C0, #007990);

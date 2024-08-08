@@ -1,0 +1,94 @@
+//
+// Process box //
+//
+.process-box {
+	position: relative;
+	padding-left: 74px;
+	.process-order {
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		border: 1px dashed $dark-20;
+		border-radius: 50%;
+		font-family: $font-family-secondary;
+		color: $dark;
+		text-align: center;
+		@include transition(linear 0.1s);
+		&:before {
+			z-index: -1;
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-image: $gradient-1;
+			opacity: 0;
+			@include transition(linear 0.1s);
+		}
+	}
+	&.process-gradient-2 {
+		.process-order {
+			&:before {
+				background-image: $gradient-2;
+			}
+		}
+	}
+	&.process-gradient-3 {
+		.process-order {
+			&:before {
+				background-image: $gradient-3;
+			}
+		}
+	}
+	&.process-gradient-4 {
+		.process-order {
+			&:before {
+				background-image: $gradient-4;
+			}
+		}
+	}
+	&.process-gradient-5 {
+		.process-order {
+			&:before {
+				background-image: $gradient-5;
+			}
+		}
+	}
+	&.active, &:hover {
+		.process-order {
+			border-color: transparent;
+			color: white;
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'] {
+	.process-box {
+		.process-order {
+			border-color: $white-30;
+			color: white;
+		}
+		&.active, &:hover {
+			.process-order {
+				border-color: transparent;
+				&:before {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+@include breakpoint-less(md) {
+	.process-box {
+		padding-left: 70px;
+	}
+}

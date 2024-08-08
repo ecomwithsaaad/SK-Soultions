@@ -1,0 +1,521 @@
+//
+// Buttons //
+//
+button {
+	background: transparent;
+	box-shadow: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+}
+a, button {
+	text-decoration: none;
+	@include transition(linear 0.1s);
+	&:focus, &:active {
+		box-shadow: none;
+		outline: 0;
+	}
+}
+
+
+// Basic //
+.button {
+	position: relative;
+	display: inline-block;
+	background: $button-gray;
+	color: $dark;
+	padding: 13px 30px;
+	font-family: $font-family-secondary;
+}
+
+
+// Sizes //
+.button-xs { padding: 7px 15px; }
+.button-sm { padding: 11px 23px; }
+.button-lg { padding: 15px 34px; }
+.button-fullwidth {
+	width: 100%;
+	text-align: center;
+}
+
+
+// Shapes //
+.button-radius { border-radius: 0.5em; }
+.button-rounded { border-radius: 30px; }
+
+
+//
+// Button hover - Slide //
+//
+.button-hover-slide {
+	overflow: hidden;
+	vertical-align: middle;
+	span {
+		display: inline-block;
+		position: relative;
+		color: transparent;
+		&:before, &:after {
+			content: attr(data-text);
+			position: absolute;
+			left: 0;
+			color: white;
+			@include transition(ease-out 0.16s);
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			visibility: hidden;
+			opacity: 0;
+			top: 50%;
+		}
+	}
+	&:hover {
+		&:before {
+			opacity: 0.4;
+			@include transform(translateY(-50%) scale(2.7));
+		}
+		span {
+			&:before {
+				visibility: hidden;
+				opacity: 0;
+				top: -50%;
+			}
+			&:after {
+				visibility: visible;
+				opacity: 1;
+				top: 0;
+			}
+		}
+	}
+}
+
+//
+// Button hover - Float //
+//
+.button-hover-float {
+	&:hover {
+		@include transform(translateY(-4px));
+	}
+}
+
+
+//
+// Button Styles //
+//
+.button-dark {
+	background: $dark;
+	color: white;
+	&:hover {
+		background: $dark-85;
+	}
+}
+.button-white {
+	background: white;
+	color: $dark;
+	&.button-hover-slide {
+		span {
+			&:before, 
+			&:after {
+				color: $dark;
+			}
+		}
+	}
+}
+.button-white-2 {
+	background: $white-15;
+	color: white;
+	&:hover {
+		background: $white-20;
+	}
+}
+.button-outline, 
+.button-outline-dashed {
+	background: transparent;
+	color: $dark;
+	&.button-hover-slide {
+		span {
+			&:before, 
+			&:after {
+				color: $dark;
+			}
+		}
+	}
+}
+.button-outline {
+	border: 1px solid $dark;
+	&:hover {
+		border-color: $dark-60;
+	}
+}
+.button-outline-dashed {
+	border: 1px dashed $dark;
+	&:hover {
+		border-color: $dark-60;
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'],
+[class*='bg-gradient'],
+.header-dark:not(.transparent-dark), 
+.header.transparent-light {
+	.button-outline, 
+	.button-outline-dashed {
+		background: transparent;
+		border-color: white;
+		color: white;
+		&:hover {
+			background: transparent;
+		}
+		&.button-hover-slide {
+			span {
+				&:before, 
+				&:after {
+					color: white;
+				}
+			}
+		}
+	}
+	.button-outline {
+		&:hover {
+			border-color: $white-70;
+		}
+	}
+	.button-outline-dashed {
+		&:hover {
+			border-color: $white-60;
+		}
+	}
+}
+
+
+//
+// Fancy Buttons //
+//
+[class*='button-fancy'] {
+	position: relative;
+	display: inline-block;
+	padding-left: 30px;
+	height: 50px;
+	line-height: 50px;
+	font-family: $font-family-secondary;
+	@include transition(all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1));
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		@include transform(translateY(-50%));
+		@include transform-origin(center left);
+		width: 50px;
+		height: 50px;
+		border-radius: 30px;
+		@include transition(all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1));
+	}
+	&:hover {
+		padding-left: 22px;
+		padding-right: 8px;
+		&:before {
+			@include transform(translateY(-50%) scale(0.25));
+		}
+	}
+	&.button-fancy-right {
+		padding-left: 0;
+		padding-right: 30px;
+		&:before {
+			left: auto;
+			right: 0;
+			@include transform-origin(center right);
+		}
+		&:hover {
+			padding-left: 8px;
+			padding-right: 22px;
+		}
+	}
+}
+.button-fancy {
+	color: $dark;
+	&:before {
+		background: $dark-05;
+	}
+	&:hover {
+		&:before {
+			background: $dark;
+		}
+	}
+}
+[class*='button-fancy-gradient'] {
+	&:before {
+		opacity: 0.1;
+	}
+	&:hover {
+		&:before {
+			opacity: 1;
+		}
+	}
+}
+.button-fancy-gradient-1 {
+	background-image: $gradient-1;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	&:before {
+		background-image: $gradient-1;
+	}
+}
+.button-fancy-gradient-2 {
+	background-image: $gradient-2;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	&:before {
+		background-image: $gradient-2;
+	}
+}
+.button-fancy-gradient-3 {
+	background-image: $gradient-3;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	&:before {
+		background-image: $gradient-3;
+	}
+}
+.button-fancy-gradient-4 {
+	background-image: $gradient-4;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	&:before {
+		background-image: $gradient-4;
+	}
+}
+.button-fancy-gradient-5 {
+	background-image: $gradient-5;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	&:before {
+		background-image: $gradient-5;
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	.button-fancy {
+		color: white;
+		&:before {
+			background: $white-15;
+		}
+		&:hover {
+			&:before {
+				background: white;
+			}
+		}
+	}
+	[class*='button-fancy-gradient'] {
+		&:hover {
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
+//
+// Circle Buttons //
+//
+.button-circle {
+	position: relative;
+	background: $button-gray;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	color: $dark;
+	line-height: 50px;
+	text-align: center;
+}
+
+//
+// Button Circle - Sizes //
+//
+.button-circle-sm {
+	width: 44px;
+	height: 44px;
+	line-height: 44px;
+}
+.button-circle-lg {
+	width: 56px;
+	height: 56px;
+	line-height: 56px;
+}
+
+//
+// Button Circle - Styles //
+//
+.button-circle-dark {
+	background: $dark;
+	color: white;
+	i {
+		color: white;
+	}
+	&:hover {
+		background: $dark-85;
+	}
+}
+.button-circle-white {
+	background: white;
+	color: $dark;
+}
+.button-circle-white-2 {
+	background: $white-15;
+	color: white;
+	i {
+		color: white;
+	}
+	&:hover {
+		background: $white-20;
+	}
+}
+.button-circle-outline, 
+.button-circle-outline-dashed {
+	background: transparent;
+	color: $dark;
+	i {
+		color: $dark;
+	}
+}
+.button-circle-outline {
+	border: 1px solid $dark;
+	&:hover {
+		border-color: $dark-60;
+	}
+}
+.button-circle-outline-dashed {
+	border: 1px dashed $dark;
+	&:hover {
+		border-color: $dark-60;
+	}
+}
+
+
+//
+// Gradient Buttons //
+//
+.button-gradient-1 {
+	background-image: $button-gradient-1;
+}
+.button-gradient-2 {
+	background-image: $button-gradient-2;
+}
+.button-gradient-3 {
+	background-image: $button-gradient-3;
+}
+.button-gradient-4 {
+	background-image: $button-gradient-4;
+}
+.button-gradient-5 {
+	background-image: $button-gradient-5;
+}
+[class*='button-gradient'] {
+	@include background-size(300% 100%);
+	border: 0;
+	@include box-shadow(0 6px 30px 0 rgba(21,25,29,0.13));
+	color: white;
+	@include transition(all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1));
+	i {
+		color: white;
+	}
+	&:hover, &:focus {
+		@include box-shadow(0 6px 36px 0 rgba(21,25,29,0.19));
+		background-position: 100% 0;
+		color: white;
+	}
+}
+
+
+//
+// Button Circle Hover - Slide //
+//
+.button-circle-hover-slide {
+	overflow: hidden;
+	line-height: 1;
+	i {
+		position: absolute;
+		left: 50%;
+		@include transition(ease-out 0.16s);
+		&:first-child {
+			top: 50%;
+			@include transform(translateX(-50%) translateY(-50%));
+			opacity: 1;
+		}
+		&:last-child {
+			top: auto;
+			bottom: 0;
+			@include transform(translateX(-50%));
+			opacity: 0;
+		}
+	}
+	&:hover {
+		i {
+			&:first-child {
+				top: 0;
+				@include transform(translateX(-50%) translateY(0));
+				opacity: 0;
+			}
+			&:last-child {
+				top: 50%;
+				bottom: auto;
+				@include transform(translateX(-50%) translateY(-50%));
+				opacity: 1;
+			}
+		}
+	}
+}
+
+[class*='bg-black'], 
+[class*='bg-dark'],
+[class*='bg-gradient'],
+.header-dark:not(.transparent-dark), 
+.header.transparent-light {
+	.button-circle-outline, 
+	.button-circle-outline-dashed {
+		background: transparent;
+		border-color: white;
+		color: white;
+		i {
+			color: white;
+		}
+		&:hover {
+			background: transparent;
+		}
+		&.button-circle-hover-slide {
+			color: white;
+			i {
+				color: white;
+			}
+		}
+	}
+	.button-circle-outline {
+		&:hover {
+			border-color: $white-70;
+		}
+	}
+	.button-circle-outline-dashed {
+		&:hover {
+			border-color: $white-60;
+		}
+	}
+}
+
+//
+// Button - Shadow //
+//
+.button-shadow {
+	@include box-shadow(0 6px 30px 0 rgba(22,24,26,0.1));
+	&:hover, &:focus {
+		@include box-shadow(0 6px 36px 0 rgba(22,24,26,0.13));
+	}
+}

@@ -1,0 +1,91 @@
+//
+// Forms //
+//
+input, 
+textarea {
+	background: $gray;
+	width: 100%;
+	border: 0;
+	margin-bottom: 1rem;
+	padding: 15px 20px;
+	border-radius: 0;
+	box-shadow: none;
+	font: 400 16px $font-family-primary;
+	@include transition(ease-out 0.16s);
+	&:focus, &:active {
+		outline: 0;
+		box-shadow: none;
+	}
+}
+textarea {
+	height: 160px;
+}
+input, textarea {
+	color: $primary;
+	&::-webkit-input-placeholder { color: $primary-lighter; }
+	&::-moz-placeholder { color: $primary-lighter; }
+	&:-ms-placeholder { color: $primary-lighter; }
+	&::-ms-placeholder { color: $primary-lighter; }
+	&::placeholder { color: $primary-lighter; }
+}
+label {
+	font-size: 15px;
+}
+
+.form-border-radius {
+	input, textarea {
+		border-radius: 0.5em;
+	}
+}
+.form-style-2 {
+	input, textarea {
+		background: transparent;
+		margin-bottom: 24px;
+		padding: 0 0 14px;
+		border-top-width: 0;
+		border-right-width: 0;
+		border-bottom: 1px solid $dark-20;
+		border-left-width: 0;
+		&:focus, &:active {
+			border-bottom-color: $dark;
+		}
+	}
+}
+
+.bg-gray, 
+.bg-iceblue {
+	input, 
+	textarea {
+		background: white;
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	input, textarea {
+		color: $white-80;
+		&::-webkit-input-placeholder { color: $white-40; }
+		&::-moz-placeholder { color: $white-40; }
+		&:-ms-placeholder { color: $white-40; }
+		&::-ms-placeholder { color: $white-40; }
+		&::placeholder { color: $white-40; }
+	}
+}
+
+
+//
+// Contact Form Styles //
+//
+.submit-result {
+	span {
+		display: none;
+		@include transition(ease-out 0.2s);
+		&.show-result {
+			margin-top: 24px;
+			display: block;
+		}
+		&#success { color: $green; }
+		&#error { color: $red; }
+		.error-color { background: rgba(255, 0, 0, 0.1); }
+	}
+}

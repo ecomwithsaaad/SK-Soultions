@@ -1,0 +1,50 @@
+//
+// Text Highlights //
+//
+[class*='text-highlight'] { 
+	position: relative;
+	display: inline-block;
+	&:before {
+		z-index: -1;
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 10%;
+	}
+}
+.text-highlight {
+	&:before {
+		bottom: 0;
+		background: $dark-20;
+	}
+}
+[class*='bg-black'], 
+[class*='bg-dark'], 
+[class*='bg-gradient'] {
+	.text-highlight {
+		&:before {
+			background: $white-20;
+		}
+	}
+}
+[class*='text-highlight-gradient'] {
+	&:before {
+		bottom: 5%;
+	}
+}
+.text-highlight-gradient-1 {
+	&:before { background-image: $gradient-1; }
+}
+.text-highlight-gradient-2 {
+	&:before { background-image: $gradient-2; }
+}
+.text-highlight-gradient-3 {
+	&:before { background-image: $gradient-3; }
+}
+.text-highlight-gradient-4 {
+	&:before { background-image: $gradient-4; }
+}
+.text-highlight-gradient-5 {
+	&:before { background-image: $gradient-5; }
+}
